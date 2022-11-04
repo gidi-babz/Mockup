@@ -254,7 +254,7 @@ h4 {
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
-	cursor: pointer;
+	cursor: s;
 }
 
 .dots {
@@ -425,4 +425,18 @@ h4 {
 	padding: 8px;
 	font-size: 12px;
 	font-weight: 600;
+}
+
+@media screen and (max-width: 600px) {
+	.loan-details {
+		flex-direction: column;
+	}
+
+	.widgets {
+		display: none;
+	}
+
+	.dots-container {
+		display: none !important;
+	}
 }

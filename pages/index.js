@@ -80,6 +80,7 @@ export default function Home() {
 						gap: '6px',
 						marginTop: '24px',
 					}}
+					className="dots-container"
 				>
 					<div className="dots-active"></div>
 					<div className="dots"></div>
