@@ -1,26 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap');
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-size: 100%;
+	padding: 0;
+	margin: 0;
+	color: #333;
+	background-color: #f3f3f3;
+	font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body::-webkit-scrollbar {
+	width: 0;
+}
+
+.loan-history::-webkit-scrollbar,
+.repayment-schedule::-webkit-scrollbar {
+	width: 8px;
+	height: 0;
+}
+.loan-history::-webkit-scrollbar-track,
+.repayment-schedule::-webkit-scrollbar-track {
+	background: #fff;
+	border-radius: 10px;
+}
+.loan-history::-webkit-scrollbar-thumb,
+.repayment-schedule::-webkit-scrollbar-thumb {
+	height: 8px;
+	border-radius: 10px;
+	border-right: 4px white solid;
+	border-top: 56px white solid;
+	border-bottom: 12px white solid;
+	background: #777;
+	background-clip: padding-box;
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+ul {
+	list-style: none;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
+}
+
+h4 {
+	color: #777;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Heading */
+.title {
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 6px;
+}
+
+.heading--btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+}
+
+.payment {
+	color: #777;
+	border: 1px solid #555;
+}
+
+.liquidate {
+	color: #be3a3a;
+	border: 1px solid #ddd;
+}
+
+.payment,
+.liquidate {
+	padding: 12px 24px;
+	font-weight: 600;
+	border-radius: 3px;
+}
+
+.sub-heading {
+	display: flex;
+	gap: 14px;
+	margin-left: auto;
+	margin-top: 14px;
+	font-weight: 500;
+}
+
+.sub-heading_desc {
+	color: #bbb;
+	letter-spacing: 0.3px;
+}
+
+.sub-heading_date {
+	color: #555;
+}
+
+/* Widgets */
+.widgets {
+	margin-top: 3.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 16px;
+	height: 10rem;
+	width: 98%;
+}
+
+.widget-card {
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	position: relative;
+}
+
+.widget-1,
+.widget-2,
+.widget-3 {
+	position: relative;
+	flex: 1;
+	height: 100%;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.widget-inner {
+	margin-top: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.eye-icon,
+.eye-icon_light {
+	margin-left: auto;
+	font-size: 1.2rem;
+}
+
+.eye-icon {
+	color: #fff;
+}
+
+.eye-icon_light {
+	color: #555;
+}
+
+.widget-icon,
+.widget-icon_2,
+.widget-icon_3 {
+	padding: 12px;
+	font-size: 32px;
+	border-radius: 12px;
+	color: #fff;
+	align-self: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.widget-icon {
+	background: linear-gradient(160deg, #f03e3e, #1b1c1d80);
+}
+.widget-icon_2 {
+	background: linear-gradient(160deg, #25b388, #1b1c1d80);
+}
+.widget-icon_3 {
+	background: linear-gradient(160deg, #866dcf, #1b1c1d80);
+}
+
+.widget-stats,
+.widget-stats_light {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.widget-stats {
+	color: #fff;
+}
+
+.widget-stats_light {
+	color: #555;
+}
+
+.widget-stats_head {
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 1px;
+}
+
+.symbol-naira {
+	font-size: 24px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	margin-right: 8px;
+}
+
+.widget-stats_numbers-amount {
+	font-size: 32px;
+	font-weight: 600;
+	letter-spacing: 2px;
+}
+
+.cover {
+	background: linear-gradient(165deg, #f03e3e, #1b1c1d99);
+}
+
+.cover-2 {
+	background: linear-gradient(165deg, #e6fcf5, #c3fae895);
+}
+
+.cover-3 {
+	background: linear-gradient(165deg, #edf2ff, #dbe4ff95);
+}
+.cover,
+.cover-2,
+.cover-3 {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	padding: 16px 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.dots,
+.dots-active {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+}
+
+.dots {
+	background-color: #ddd;
+}
+
+.dots-active {
+	background-color: #777;
+}
+
+/* Loan details */
+.loan-details {
+	margin-top: 3rem;
+	display: flex;
+	gap: 12px;
+}
+
+.loan-history,
+.repayment-schedule {
+	flex: 1;
+	background-color: #fff;
+	padding: 2rem 1rem;
+	border-radius: 6px;
+	height: 31rem;
+	overflow-y: auto;
+}
+
+.loan-history_cards {
+	margin-left: 12px;
+}
+
+.loan-history_card {
+	background: linear-gradient(to bottom right, #ffd43b, #495057);
+	color: #fff;
+}
+
+.loan-history_card-2 {
+	background: linear-gradient(to bottom right, #b4dfe3, #b4dfe3);
+	color: #555;
+}
+
+.loan-history_card,
+.loan-history_card-2 {
+	width: 100%;
+	height: 12rem;
+	padding: 24px;
+	border-radius: 4px;
+	margin-top: 1.5rem;
+	margin-top: 1rem;
+}
+
+.loan-history_details {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.loan-history_details-amount {
+	color: inherit;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.stats {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 2px #b3b3b3 solid;
+	margin-top: 8px;
+	padding-bottom: 1rem;
+}
+
+.stats-desc {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	color: inherit;
+}
+
+.stats-title {
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.stats-value {
+	font-size: 1.05rem;
+	font-weight: 700;
+}
+
+.status {
+	margin-left: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 12px;
+	margin-top: 6px;
+	color: inherit;
+	font-size: 14px;
+}
+
+.status-text {
+	font-weight: 600;
+}
+
+.status-label,
+.status-label-ok {
+	padding: 8px 12px;
+	border-radius: 6px;
+}
+
+.status-label {
+	background-color: #ffa94d;
+}
+
+.status-label-ok {
+	background-color: #2f9e44;
+	color: #fff;
+}
+
+.repayment_subtext {
+	margin-top: 4px;
+	margin-bottom: 1rem;
+	font-size: 12px;
+	color: #aaa;
+	font-weight: 600;
+}
+
+.loans {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.ongoing-loan {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 4px;
+	background-color: #ccf9f530;
+	padding: 8px 12px;
+}
+
+.ongoing-loan_desc {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.ongoing-loan_date {
+	font-size: 14px;
+	font-weight: 500;
+	color: #aaa;
+}
+
+.naira {
+	margin-right: 2px;
+}
+.ongoing-loan_amount {
+	font-weight: 700;
+	color: #20c997;
+}
+
+.ongoing-loan_btn {
+	cursor: pointer;
+	background-color: #2f9e44;
+	color: #fff;
+	border-radius: 4px;
+	padding: 8px;
+	font-size: 12px;
+	font-weight: 600;
 }
