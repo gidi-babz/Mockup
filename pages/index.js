@@ -1,14 +1,15 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import HeadingButtons from '../components/HeadingButtons';
-import OngoingLoans from '../components/OngoingLoans';
-import LoanHistoryCard from '../components/LoanHistoryCard';
+import LoanHistoryCard from '../components/UI/LoanHistoryCard';
 import WidgetCard from '../components/UI/WidgetCard';
 import Widgets from '../components/Widgets';
 
 import { RiWallet3Line } from 'react-icons/ri';
 import { FiPercent } from 'react-icons/fi';
 import { CiMoneyBill } from 'react-icons/ci';
+import Repayment from '../components/Repayment';
+import LoanHistory from '../components/LoanHistory';
 
 export default function Home() {
 	return (
@@ -86,49 +87,8 @@ export default function Home() {
 				</div>
 
 				<div className="loan-details">
-					<div className="loan-history">
-						<h4>Loan History</h4>
-						<div className="loan-history_cards">
-							<div className="loan-history_card">
-								<LoanHistoryCard
-									balance="2,000,000.00"
-									month="6"
-									year="2022"
-									status="Ongoing"
-								/>
-							</div>
-							<div className="loan-history_card-2">
-								<LoanHistoryCard
-									balance="5,000,000.00"
-									month="12"
-									year="2021"
-									status="Approved"
-									approved={true}
-								/>
-							</div>
-						</div>
-					</div>
-
-					<div className="repayment-schedule">
-						<h4>Repayment schedule</h4>
-						<p className="repayment_subtext">
-							Showing schedule for ongoing loan
-						</p>
-						<ul className="loans">
-							<OngoingLoans month="Jan" />
-							<OngoingLoans month="Feb" />
-							<OngoingLoans month="Mar" />
-							<OngoingLoans month="Apr" />
-							<OngoingLoans month="May" />
-							<OngoingLoans month="Jun" />
-							<OngoingLoans month="Jul" />
-							<OngoingLoans month="Aug" />
-							<OngoingLoans month="Sep" />
-							<OngoingLoans month="Oct" />
-							<OngoingLoans month="Nov" />
-							<OngoingLoans month="Dec" />
-						</ul>
-					</div>
+					<LoanHistory />
+					<Repayment />
 				</div>
 			</main>
 		</div>
